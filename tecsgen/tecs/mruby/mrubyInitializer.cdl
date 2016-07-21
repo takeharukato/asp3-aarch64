@@ -1,0 +1,20 @@
+
+namespace nMruby{
+
+	signature sInitializeBridge {
+		void initializeBridge( [in]const mrb_state *mrb );
+	};
+
+	signature sInitializeTECSBridge {
+		void initializeBridge( [inout]mrb_state *mrb, [inout]struct RClass *TECS );
+	};
+
+	// tTECSInitializer creates classes under "TECS" module in mruby VM
+	celltype tTECSInitializer {
+		entry sInitializeBridge eInitialize;
+		call  sInitializeTECSBridge cInitialize[];
+		var{
+			struct RClass *TECS = 0;
+		};
+	};
+};
