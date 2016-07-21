@@ -1,0 +1,7 @@
+
+namespace nPosix {
+	signature sMain{
+		int  main( [in]int argc, [in,size_is(argc),string]const char **argv );
+	};
+};
+

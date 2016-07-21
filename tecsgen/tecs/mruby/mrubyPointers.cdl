@@ -1,0 +1,35 @@
+// Pointer celltypes
+
+namespace nMruby {
+	// Pointer to Bool
+	[singleton]celltype tBoolPointer	 {	entry  sInitializeTECSBridge eInitialize; };
+
+	// Pointer to Chars
+	[singleton]celltype tCharPointer	 {	entry  sInitializeTECSBridge eInitialize; };
+	[singleton]celltype tSCharPointer	 {	entry  sInitializeTECSBridge eInitialize; };
+	[singleton]celltype tUCharPointer	 {	entry  sInitializeTECSBridge eInitialize; };
+
+	// Pointer to Signed Integers
+	[singleton]celltype tInt8Pointer	 {	entry  sInitializeTECSBridge eInitialize; };
+	[singleton]celltype tInt16Pointer	 {	entry  sInitializeTECSBridge eInitialize; };
+	[singleton]celltype tInt32Pointer	 {	entry  sInitializeTECSBridge eInitialize; };
+	[singleton]celltype tInt64Pointer	 {	entry  sInitializeTECSBridge eInitialize; };
+
+	// Pointer to Unsigned Integers
+	[singleton]celltype tUInt8Pointer	 {	entry  sInitializeTECSBridge eInitialize; };
+	[singleton]celltype tUInt16Pointer	 {	entry  sInitializeTECSBridge eInitialize; };
+	[singleton]celltype tUInt32Pointer	 {	entry  sInitializeTECSBridge eInitialize; };
+	[singleton]celltype tUInt64Pointer	 {	entry  sInitializeTECSBridge eInitialize; };
+
+	// Pointer to Floating types
+	[singleton]celltype tFloat32Pointer	 {	entry  sInitializeTECSBridge eInitialize; };
+	[singleton]celltype tDouble64Pointer	 {	entry  sInitializeTECSBridge eInitialize; };
+
+	// Pointer to Integers (unrecommended)
+	[singleton]celltype tIntPointer	 {	entry  sInitializeTECSBridge eInitialize; };
+	[singleton]celltype tShortPointer	 {	entry  sInitializeTECSBridge eInitialize; };
+	[singleton]celltype tLongPointer	 {	entry  sInitializeTECSBridge eInitialize; };
+	[singleton]celltype tUIntPointer	 {	entry  sInitializeTECSBridge eInitialize; };
+	[singleton]celltype tUShortPointer	 {	entry  sInitializeTECSBridge eInitialize; };
+	[singleton]celltype tULongPointer	 {	entry  sInitializeTECSBridge eInitialize; };
+};

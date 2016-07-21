@@ -1,0 +1,5 @@
+import_C( "tecs_mruby.h" );
+
+import( <mrubyInitializer.cdl> );
+import( <mrubyPointers.cdl> );
+import( <mrubyVMs.cdl> );

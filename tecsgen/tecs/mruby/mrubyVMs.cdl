@@ -1,0 +1,17 @@
+import( <posix.cdl> );
+
+/*
+ * tools/mruby/mruby.c から cInit_initializeBridge( mrb ) を呼び出すように変更したもの
+ */
+namespace nMruby{
+	[active]
+	celltype tMrubyProc {
+	    entry nPosix::sMain eMain;
+
+		[optional]
+			call sInitializeBridge cInit;
+		var {
+			mrb_state *mrb;
+		};
+	};
+};
