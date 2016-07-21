@@ -1,0 +1,27 @@
+# -*- coding: utf-8 -*-
+# 
+# 		オフセットファイル生成用の生成スクリプトのターゲット依存部（ダ
+# 		ミーターゲット用）
+#
+#   $Id$
+# 
+
+#
+#  ターゲット非依存部のインクルード
+#
+IncludeTrb("kernel/genoffset.trb")
+
+#
+#  フィールドのオフセットの定義の生成
+#
+GenerateDefine("TCB_p_tinib", $offsetof_TCB_p_tinib)
+GenerateDefine("TCB_sp", $offsetof_TCB_sp)
+GenerateDefine("TCB_pc", $offsetof_TCB_pc)
+GenerateDefine("TINIB_exinf", $offsetof_TINIB_exinf)
+GenerateDefine("TINIB_task", $offsetof_TINIB_task)
+GenerateDefine("T_EXCINF_elr", $offsetof_T_EXCINF_elr)
+GenerateDefine("T_EXCINF_sp_el0", $offsetof_T_EXCINF_sp_el0)
+GenerateDefine("T_EXCINF_exnc", $offsetof_T_EXCINF_exnc)
+GenerateDefine("T_EXCINF_irq", $offsetof_T_EXCINF_irq)
+GenerateDefine("T_EXCINF_intpri", $offsetof_T_EXCINF_intpri)
+GenerateDefine("T_EXCINF_r30", $offsetof_T_EXCINF_r30)

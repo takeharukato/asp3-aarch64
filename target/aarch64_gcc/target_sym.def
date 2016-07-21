@@ -1,0 +1,11 @@
+USE_INTCFG_TABLE,true,bool,defined(USE_INTCFG_TABLE)
+sizeof_TCB,sizeof(TCB)
+offsetof_TCB_p_tinib,"offsetof(TCB,p_tinib)"
+offsetof_TCB_sp,"offsetof(TCB,tskctxb.sp)"
+offsetof_TCB_pc,"offsetof(TCB,tskctxb.pc)"
+offsetof_T_EXCINF_elr,"offsetof(T_EXCINF,elr)"
+offsetof_T_EXCINF_sp_el0,"offsetof(T_EXCINF,sp_el0)"
+offsetof_T_EXCINF_exnc,"offsetof(T_EXCINF,exnc)"
+offsetof_T_EXCINF_irq,"offsetof(T_EXCINF,irq)"
+offsetof_T_EXCINF_intpri,"offsetof(T_EXCINF,intpri)"
+offsetof_T_EXCINF_r30,"offsetof(T_EXCINF,r30)"

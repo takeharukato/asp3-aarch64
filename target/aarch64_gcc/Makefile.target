@@ -1,0 +1,71 @@
+#
+#		Makefile のターゲット依存部（ダミーターゲット用）
+#
+#  $Id$
+# 
+
+#
+#  システム名，開発環境名の定義
+#
+SYS = aarch64
+TOOL = gcc
+
+#
+#  ツール依存部ディレクトリ名の定義 
+#
+TOOLDIR = $(SRCDIR)/arch/$(TOOL)
+
+#
+#  GNU開発環境のターゲットアーキテクチャの定義
+#
+#  ダミーターゲット用であるため，定義しない．
+#
+GCC_TARGET = aarch64-linux-gnu
+
+#
+#  コンパイルオプション
+#
+CORE32_DIR=$(SRCDIR)/arch/arm_gcc/common
+INCLUDES := $(INCLUDES) -I$(TARGETDIR) -I$(TOOLDIR) -I$(CORE32_DIR)
+COPTS := $(COPTS) -ggdb3 -O0  -mgeneral-regs-only -mcpu=cortex-a53+nofp  -fno-pic -fno-builtin -fno-strict-aliasing
+#リンカスクリプト
+LDSCRIPT = $(TARGETDIR)/machvirt.ld
+# スタートアップモジュールのオブジェクトファイル名
+START_OBJS = start.o
+
+# スタートアップモジュールのコンパイルルール
+$(START_OBJS): %.o: %.S
+	$(CC) -c $(CFLAGS) $(KERNEL_CFLAGS) $<
+
+# リンカに対するオプション
+LDFLAGS := -nostdlib -Wl,--build-id=none $(LDFLAGS)
+CFG1_OUT_LDFLAGS := -nostdlib $(CFG1_OUT_LDFLAGS)
+LIBS :=  -lgcc
+#
+#  カーネルに関する定義
+#
+KERNEL_DIRS := $(KERNEL_DIRS) $(TARGETDIR)
+KERNEL_ASMOBJS := $(KERNEL_ASMOBJS) vector.o swctx.o gic_support.o
+KERNEL_COBJS := $(KERNEL_COBJS) target_kernel_impl.o target_timer.o gic_kernel_impl.o \
+	     vsnprintf.o doprintf.o strnlen.o traps.o
+
+#
+#  システムサービスに関する定義
+#
+SYSSVC_COBJS := $(SYSSVC_COBJS)
+
+#
+#  コンフィギュレータ関係の変数の定義
+#
+CFG_TABS := $(CFG_TABS) --symval-table $(TARGETDIR)/target_sym.def
+
+#
+#  トレースログ記録のサンプルコードに関する定義
+#
+ifdef ENABLE_TRACE
+	COPTS := $(COPTS) -DTOPPERS_ENABLE_TRACE
+	SYSSVC_DIRS := $(SYSSVC_DIRS) $(SRCDIR)/arch/tracelog
+endif
+
+
+
