@@ -2,7 +2,7 @@
 #		Makefile のターゲット依存部（ダミーターゲット用）
 #
 #  $Id$
-# 
+#
 
 #
 #  システム名，開発環境名の定義
@@ -11,7 +11,7 @@ SYS = aarch64
 TOOL = gcc
 
 #
-#  ツール依存部ディレクトリ名の定義 
+#  ツール依存部ディレクトリ名の定義
 #
 TOOLDIR = $(SRCDIR)/arch/$(TOOL)
 
@@ -20,7 +20,7 @@ TOOLDIR = $(SRCDIR)/arch/$(TOOL)
 #
 #  ダミーターゲット用であるため，定義しない．
 #
-GCC_TARGET = aarch64-linux-gnu
+GCC_TARGET = aarch64-elf
 
 #
 #  コンパイルオプション
@@ -66,6 +66,3 @@ ifdef ENABLE_TRACE
 	COPTS := $(COPTS) -DTOPPERS_ENABLE_TRACE
 	SYSSVC_DIRS := $(SYSSVC_DIRS) $(SRCDIR)/arch/tracelog
 endif
-
-
-
